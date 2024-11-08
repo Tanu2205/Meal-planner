@@ -51,7 +51,7 @@ const MealPreferences = () => {
           Keto
         </label>
       </div>
-      <button className="btn" style={{ backgroundColor: '#F26522', color: 'white' }}>
+      <button className="btn" style={{ backgroundColor: '#F26522', color: 'white' ,borderRadius:"5%",width:"8em" }}>
         Save Preferences
       </button>
     </div>

@@ -9,7 +9,7 @@ const ProfileInfo = () => {
 
   return (
     <div className="card p-4 shadow-sm">
-      <h2 className="text-center">Profile Information</h2>
+      <h2 className="text-center"><u>Profile Information</u></h2>
       <div className="mb-3">
         <label className="form-label">Name</label>
         <input
@@ -28,7 +28,7 @@ const ProfileInfo = () => {
           onChange={handleEmailChange}
         />
       </div>
-      <button className="btn" style={{ backgroundColor: '#F26522', color: 'white' }}>
+      <button className="btn" style={{ backgroundColor: '#F26522', color: 'white' ,borderRadius:"5%",width:"8em" }}>
         Save Changes
       </button>
     </div>
