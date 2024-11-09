@@ -8,7 +8,7 @@ import salad from '../assets/salad.png'
 import Homeintro from '../components/Homeintro';
 import HomeMealPlanning from '../components/HomeMealPlanning';
 import HomeRecepi from '../components/HomeRecepi';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 function Homepage() {
   return (
     <>
