@@ -53,7 +53,7 @@ function Navbar() {
 
         {/* Hamburger Icon for Mobile */}
         <div className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-          <button className="text-white focus:outline-none">
+          <button className="text-blue focus:outline-none">
             <svg
               className="w-6 h-6"
               fill="none"
