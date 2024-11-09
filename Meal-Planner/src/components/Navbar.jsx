@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import clsx from 'clsx'
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
+import { createBrowserRouter } from 'react-router-dom';
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
