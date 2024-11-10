@@ -36,6 +36,7 @@ function Navbar() {
           <NavLink to="/recipes" className="text-navtext hover:text-gray-200">Recipes</NavLink>
           <NavLink to="/quickbasket" className="text-navtext hover:text-gray-200">Quick basket</NavLink>
           <NavLink to="/community" className="text-navtext hover:text-gray-200">Community</NavLink>
+          <NavLink to="/cart" className="text-navtext hover:text-gray-200"><i className="fas fa-shopping-cart text-blue text-3xl ml-2"></i></NavLink>
 
         </div>
           <button
