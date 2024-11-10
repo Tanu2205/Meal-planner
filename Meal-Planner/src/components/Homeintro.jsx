@@ -5,13 +5,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from "../components/Navbar";
 import image from '../assets/nutrition-plan.png'
 import salad from '../assets/salad.png'
-
+import illustration from '../assets/illustration (2).png'
 function Homeintro(){
     return (<>
-    <div className="md:px-4 py-8">
+    <div className="overflow-hidden">
         <div className="w-full">
             
-            <div className="grid grid-cols-1 md:grid-cols-2 md:m-4 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 md:m-4 gap-10 bg-back">
     
                 <div className="p-4 col-span-1 flex flex-col ">
                     <div className="md:max-w-[40vw]  ">
@@ -25,7 +25,7 @@ function Homeintro(){
                     
                 </div>
                 <div className="flex justify-center items-center">
-                    <img src={image} alt="img" className=" md:h-96 mb-4"/>
+                    <img src={illustration} alt="img" className=" md:h-[70vh] bottom-0"/>
                 </div>
             </div>
         </div>

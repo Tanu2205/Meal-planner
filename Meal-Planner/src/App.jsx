@@ -17,7 +17,7 @@ function App() {
   
 
   return ( <>
-  
+  <div className='bg-back overflow-x-hidden'>
   <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path="/mealplanning"  element={<MealPlanning/>}/>
@@ -26,6 +26,7 @@ function App() {
         <Route path="/community" element={<Community/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </div>
      
   
   </>)

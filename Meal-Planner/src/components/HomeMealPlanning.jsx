@@ -14,8 +14,8 @@ import tomato from '../assets/tomato.png'
 
 function HomeMealPlanning(){
     return(<>
-    <div className='min-h-screen bg-back'>
-    <div className="flex justify-center">
+    <div className=' bg-back'>
+    <div className=" bg-back flex justify-center">
       <div className=" mt-5 bg-[#fcfcfe] border-2 border-green h-auto md:h-64 w-4/5 md:w-4/5 rounded-3xl p-4 md:p-0">
         <div>
         <p className="ml-6 mb-2 mt-4 text-2xl md:text-3xl font-semibold text-blue">
