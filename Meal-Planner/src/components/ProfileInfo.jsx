@@ -2,16 +2,16 @@ import React from 'react';
 // Ensure Font Awesome is installed: npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faRulerVertical, faWeight, faLeaf, faUtensils, faBullseye, faEdit } from '@fortawesome/free-solid-svg-icons';
-
+import image from '../assets/anita.jpg'
 const ProfileInfo = () => {
-  const name = 'John Doe';
-  const email = 'johndoe@email.com';
-  const profileImage = 'https://via.placeholder.com/250'; // Replace with actual image URL
-  const height = '5 ft 9 in';
-  const weight = '150 lbs';
+  const name = 'Anita Gupta';
+  const email = 'anitagupta@gmail.com';
+  const profileImage = image; // Replace with actual image URL
+  const height = '5 ft 1 in';
+  const weight = '45 kg';
   const healthGoal = 'Maintain a balanced lifestyle';
   const isVegetarian = true;
-  const favoriteFood = 'Pasta Primavera';
+  const favoriteFood = 'Chole bhature';
 
   return (
     <div className="max-w-4/5 mx-auto bg-white shadow-lg rounded-lg overflow-hidden flex font-poppins">
