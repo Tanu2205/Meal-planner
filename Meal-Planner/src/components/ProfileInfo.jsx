@@ -14,38 +14,40 @@ const ProfileInfo = () => {
   const favoriteFood = 'Chole bhature';
 
   return (
-    <div className="max-w-4/5 mx-auto bg-white shadow-lg rounded-lg overflow-hidden flex font-poppins">
-      
+    <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden font-poppins flex flex-col md:flex-row">
+      <div className="w-full h-80 bg-gray-200 flex items-center justify-center md:w-80 md:h-auto">
+        <img src={profileImage} alt="Profile" className="w-5/6 h-5/6 object-cover md:rounded-full" />
+      </div>
       {/* Information Section */}
-      <div className="flex-1 p-6 ml-10">
-        <h2 className="text-4xl font-semibold font-poppins text-blue">{name}</h2>
-        <p className="text-green flex items-center mb-4">
+      <div className="flex-1 p-6">
+        <h2 className="text-3xl font-semibold text-gray-800">{name}</h2>
+        <p className="text-gray-600 flex items-center mb-4">
           <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-blue-500" />
           {email}
         </p>
 
         {/* Health Information */}
         <div className="mt-4">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-2">Health Information</h3>
-          <ul className="text-gray-600 space-y-3 text-xl mt-4">
-            <li className="flex items-center ">
-              <FontAwesomeIcon icon={faRulerVertical} className="mr-2 text-#ff0000" />
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">Health Information</h3>
+          <ul className="text-gray-600 space-y-3">
+            <li className="flex items-center">
+              <FontAwesomeIcon icon={faRulerVertical} className="mr-2 text-green-500" />
               <strong>Height:</strong> {height}
             </li>
             <li className="flex items-center">
-              <FontAwesomeIcon icon={faWeight} className="mr-2 text-orange" />
+              <FontAwesomeIcon icon={faWeight} className="mr-2 text-orange-500" />
               <strong>Weight:</strong> {weight}
             </li>
             <li className="flex items-center">
-              <FontAwesomeIcon icon={faBullseye} className="mr-2 text-#7f32a8" />
+              <FontAwesomeIcon icon={faBullseye} className="mr-2 text-purple-500" />
               <strong>Health Goal:</strong> {healthGoal}
             </li>
             <li className="flex items-center">
-              <FontAwesomeIcon icon={faLeaf} className="mr-2 text-green" />
+              <FontAwesomeIcon icon={faLeaf} className="mr-2 text-green-600" />
               <strong>Diet:</strong> {isVegetarian ? 'Vegetarian' : 'Non-Vegetarian'}
             </li>
             <li className="flex items-center">
-              <FontAwesomeIcon icon={faUtensils} className="mr-2 text-#4debe5" />
+              <FontAwesomeIcon icon={faUtensils} className="mr-2 text-red-500" />
               <strong>Favorite Food:</strong> {favoriteFood}
             </li>
           </ul>
@@ -59,9 +61,7 @@ const ProfileInfo = () => {
       </div>
 
       {/* Profile Image Section */}
-      <div className="flex-none w-80 h-80 bg-gray-200 flex items-center justify-center rounded-full mr-5 mt-5">
-        <img src={profileImage} alt="Profile" className="w-full h-full object-cover rounded-full" />
-      </div>
+      
     </div>
   );
 };
