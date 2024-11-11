@@ -16,7 +16,13 @@ export default {
       'white':'#ffffff',
       'green':'#98b37a',
       'blue':'#193e6b',
-      '#fcfcfe':'#fcfcfe'
+      '#fcfcfe':'#fcfcfe',
+      '#e8d7d1':'#e8d7d1',
+      '#f26ca6':'#a9b7a3',
+      '#4d5d52':'#333333',
+      '#ff0000':'#008000',
+      "#7f32a8":'#7f32a8',
+      '#4debe5':'#4debe5'
     },
   plugins: [gradients],
 }}
