@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaUser, FaUtensils, FaBullseye, FaCog } from 'react-icons/fa';
+import { FaUser, FaUtensils, FaBullseye, FaCog,FaHome } from 'react-icons/fa';
 import ProfileInfo from '../components/ProfileInfo';
 import MealPreferences from '../components/MealPreferences';
 import HealthGoals from '../components/HealthGoals';
@@ -7,19 +7,30 @@ import AccountSettings from '../components/AccountSettings';
 import Navbar from '../components/Navbar';
 import logo from '../assets/logo.png'
 import { NavLink } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 function MealPlanning() {
   const [activeTab, setActiveTab] = useState('profile');
-
+  const navigate = useNavigate();
   return (
     <>
       
       <div className="flex flex-row h-screen rounded-r-lg  bg-#dbebd3">
         {/* Sidebar */}
-        <div className="rounded-r-lg text-gray border-r flex flex-col items-center md:items-center w-12 md:w-1/6 ml-2 gap-1">
+        <div className="rounded-r-lg text-gray flex flex-col items-center md:items-center w-12 md:w-1/6 ml-2 gap-1">
         
-          <h2 className="text-3xl mt-8 font-bold text-white text-center md:text-left md:mb-8 hidden md:block">Meal Planner</h2>
-
+          <h2 className="text-3xl mt-8 font-bold text-blue text-center md:text-left md:mb-8 hidden md:block">Meal Planner</h2>
+          <button
+      className={`nav-link flex flex-col items-center md:flex-row space-y-2 md:space-y-0 md:space-x-2 px-2 md:px-4 py-2 rounded-md w-full mr-2 mt-2 ${
+        activeTab === 'home' ? 'bg-[#e8d7d1]' : 'hover:bg-[#e8d7d1]'
+      }`}
+      onClick={() => {
+        setActiveTab('home'); // Optionally set activeTab if you’re tracking it
+        navigate('/'); // Navigate to homepage within the same screen
+      }}
+    >
+      <FaHome/>
+      <span className="text-xs md:text-base hidden md:inline">Home</span>
+    </button>
           <button
             className={`nav-link flex flex-col items-center md:flex-row space-y-2 md:space-y-0 md:space-x-2 px-2 md:px-4 py-2 rounded-md w-full mr-2 mt-2 ${
               activeTab === 'profile' ? 'bg-#e8d7d1' : 'hover:bg-#e8d7d1'
@@ -66,6 +77,8 @@ function MealPlanning() {
             {activeTab === 'preferences' && <MealPreferences />}
             {activeTab === 'goals' && <HealthGoals />}
             {activeTab === 'settings' && <AccountSettings />}
+            
+
           </div>
         </div>
       </div>

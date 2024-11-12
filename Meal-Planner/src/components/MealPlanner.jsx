@@ -49,7 +49,7 @@ const MealPlanner = () => {
 
   return (
     <div className="flex flex-col items-center p-6 bg-gray-50 min-h-screen text-blue font-sans">
-      <h1 className="text-3xl font-bold mb-8">Customizable Meal Planner</h1>
+      <h1 className="text-4xl font-bold mb-8">Customizable Meal Planner</h1>
       <div className="w-full max-w-full h-full space-y-8">
         {["breakfast", "lunch", "dinner"].map((mealType) => (
           <div key={mealType} className="bg-white p-6 rounded-lg shadow-lg">
