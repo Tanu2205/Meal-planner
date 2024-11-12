@@ -2,7 +2,7 @@ import React from "react";
 const recipeData = [
     {
       title: "Palak Paneer",
-      image:"https://th.bing.com/th/id/OIP.sDJoyIs2RDDCoM1yjmDWTwHaFj?rs=1&pid=ImgDetMain"
+      image:"https://th.bing.com/th/id/OIP.sDJoyIs2RDDCoM1yjmDWTwHaFj?rs=1&pid=ImgDetMain",
       shortDescription: "A nutritious spinach-based curry with cottage cheese.",
       fullRecipe: {
         description: "Palak Paneer is a North Indian dish made with spinach and paneer, rich in iron, calcium, and protein.",
