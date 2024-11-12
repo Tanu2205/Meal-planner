@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCart } from '../components/CartContext';
+import { NavLink } from 'react-router-dom';
 
 const CartPage = () => {
   const { cartItems, removeFromCart } = useCart();
@@ -38,7 +39,8 @@ const CartPage = () => {
           </div>
         </div>
       ) : (
-        <p className="text-center text-gray-500">Your cart is empty.</p>
+        <p className="text-center text-gray-500 text-xl">Your cart is empty. Add items to your cart by <NavLink to="/quickbasket" className="text-blue font-bold font-sans text-2xl hover:text-gray-200">Quick basket !!</NavLink>
+</p>
       )}
     </div>
   );

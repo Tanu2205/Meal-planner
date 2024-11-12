@@ -1,19 +1,19 @@
-// Footer.js
 import React from 'react';
+import logo from '../assets/logo.png'
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-6">
+    <footer className="bg-blue text-white py-6">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-        {/* Logo / Title */}
-        <div className="text-lg font-semibold mb-4 md:mb-0">
-          My Website
+        
+        <div className="text-2xl font-semibold mb-4 md:mb-0 font-sans">
+        <NavLink to="/"><img src={logo} alt="img" className="h-32"/></NavLink>
+
+          &nbsp; &nbsp;Swad-Se
         </div>
 
-        {/* Links */}
         
-
-        {/* Social Media Icons */}
         <div className="flex space-x-4">
           <a href="#" aria-label="Facebook" className="hover:text-gray-400">
             <i className="fab fa-facebook-f"></i>
@@ -32,7 +32,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="text-center text-gray-500 text-sm mt-4">
-        © 2024 My Website. All rights reserved.
+        © 2024 Swad-Se. All rights reserved.
       </div>
     </footer>
   );
