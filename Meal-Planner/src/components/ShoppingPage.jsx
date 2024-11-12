@@ -5,11 +5,10 @@ import items from '../components/CartItems';
 
 const ShoppingPage = () => {
   const { addToCart } = useCart();
-  const navigate = useNavigate();  // Initialize useNavigate
+  const navigate = useNavigate();  
 
   const handleAddToCart = (item) => {
-    addToCart(item);              // Add item to cart
-    navigate('/cart');            // Navigate to Cart page immediately
+    addToCart(item);              
   };
 
   return (
@@ -22,7 +21,7 @@ const ShoppingPage = () => {
             <div className="p-4">
               <h2 className="text-xl font-semibold">{item.name}</h2>
               <p className="text-gray-700">{item.description}</p>
-              <p className="text-green-500 font-bold mt-2">{item.price} &#8377;</p>
+              <p className="text-green-500 font-bold mt-2">{item.price*10} &#8377;</p>
               <button 
                 onClick={() => handleAddToCart(item)}  // Use our custom handle function
                 className="mt-4 bg-blue text-white px-4 py-2 rounded-3xl hover:bg-blue-600"

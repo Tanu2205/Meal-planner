@@ -16,7 +16,7 @@ const CartPage = () => {
               <div className="flex-1 px-4">
                 <h2 className="text-xl font-semibold">{item.name}</h2>
                 <p className="text-gray-700">Quantity: {item.quantity}</p>
-                <p className="text-green-500 font-bold">${item.price * item.quantity}</p>
+                <p className="text-green-500 font-bold">{item.price * item.quantity*10}&#8377;</p>
               </div>
               <div className='flex flex-col gap-1'>
               <button 
@@ -35,7 +35,7 @@ const CartPage = () => {
             </div>
           ))}
           <div className="text-right mt-4 font-bold text-xl">
-            Total: ${cartItems.reduce((total, item) => total + item.price * item.quantity, 0)}
+            Total: {cartItems.reduce((total, item) => total + item.price * item.quantity*10, 0) }&#8377;
           </div>
         </div>
       ) : (
