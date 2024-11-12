@@ -24,8 +24,6 @@ const PrivateRoute = ({ children }) => {
   return user ? children : <Navigate to="/login" />;
 };
 function App() {
-  
-
   return ( <>
   <AuthProvider>
   <CartProvider>
