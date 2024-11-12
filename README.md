@@ -1,4 +1,5 @@
-#Swad-Se : A Customised Meal Planner
+# Swad-Se : A Customised Meal Planner
+
 Many people struggle to maintain a balanced diet due to dietary restrictions, meal planning, and finding suitable recipes. Key challenges include difficulty finding recipes that meet specific needs (like gluten-free or vegan), overwhelming meal planning, lack of nutritional information, time-consuming grocery shopping, and the absence of delivery integration. Additionally, there’s a need for community support where users can share tips and recipes.
 
 Solutions include:
