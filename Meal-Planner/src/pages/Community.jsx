@@ -4,7 +4,7 @@ const sampleUsers = [
   {
     id: 1,
     name: 'Aman',
-    profileImage: 'https://via.placeholder.com/40?text=A',
+    profileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRLGvcawzO9i0hVsqddANPK4A0gxPj73pX3johsxMTmVZ6g_KGrWMpe36UiJc3bkLSfB8&usqp=CAU',
   },
   {
     id: 2,
@@ -14,16 +14,16 @@ const sampleUsers = [
   {
     id: 3,
     name: 'Rahul Singh',
-    profileImage: 'https://via.placeholder.com/40?text=C',
+    profileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcFNE2CZZzsF5-Jtx_O7qLS_3x0ZLoR2Tnvg&s',
   },
   {
     id: 4,
     name: 'Khushi Sharma',
-    profileImage: 'https://via.placeholder.com/40?text=C',
+    profileImage: 'https://cdn.pixabay.com/photo/2024/02/12/17/23/ai-generated-8569065_1280.jpg',
   },{
     id: 5,
     name: 'Vikas Gupta',
-    profileImage: 'https://via.placeholder.com/40?text=C',
+    profileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy60EbYNRbgIV59YZz_PHcJwkPSwq0SOaS907AxOCs7lebyJqRXl4-ho8ouFkPrLSJ0bY&usqp=CAU',
   }
 ];
 
