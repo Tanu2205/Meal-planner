@@ -1,13 +1,79 @@
 import React, { useState } from 'react';
+import anita from '../assets/anita.jpg'
+const sampleUsers = [
+  {
+    id: 1,
+    name: 'Aman',
+    profileImage: 'https://via.placeholder.com/40?text=A',
+  },
+  {
+    id: 2,
+    name: 'Anita Gupta',
+    profileImage: anita,
+  },
+  {
+    id: 3,
+    name: 'Rahul Singh',
+    profileImage: 'https://via.placeholder.com/40?text=C',
+  },
+  {
+    id: 4,
+    name: 'Khushi Sharma',
+    profileImage: 'https://via.placeholder.com/40?text=C',
+  },{
+    id: 5,
+    name: 'Vikas Gupta',
+    profileImage: 'https://via.placeholder.com/40?text=C',
+  }
+];
 
-// Sample user profile data (replace with dynamic data as needed)
-const sampleUser = {
-  name: 'John Doe',
-  profileImage: 'https://via.placeholder.com/40',
-};
 
-const CommunityPage = () => {
-  const [comments, setComments] = useState([]);
+const initialComments = [
+  {
+    id: 1,
+    user: sampleUsers[0],
+    text: "This website has been really helpful! Thanks for all the resources.",
+    date: '11/11/2024, 10:00 AM',
+    likes: 3,
+    replies: [
+      {
+        id: 101,
+        user: sampleUsers[1],
+        text: 'I agree with you, Aman!',
+        date: '11/11/2024, 10:10 AM',
+        likes: 1,
+      },
+    ],
+  },
+  {
+    id: 2,
+    user: sampleUsers[2],
+    text: 'The website helped me a lot',
+    date: '11/10/2024, 9:00 PM',
+    likes: 5,
+    replies: [],
+  },
+  {
+    id: 4,
+    user: sampleUsers[3],
+    text: 'The quick basket helped me to get neccesary things',
+    date: '11/10/2024, 9:00 PM',
+    likes: 5,
+    replies: [],
+  }
+  ,
+  {
+    id: 2,
+    user: sampleUsers[4],
+    text: 'The wesbsite is awesome',
+    date: '11/10/2024, 9:00 PM',
+    likes: 5,
+    replies: [],
+  }
+];
+
+const Community = () => {
+  const [comments, setComments] = useState(initialComments);
   const [newComment, setNewComment] = useState('');
 
   const handleCommentSubmit = (e) => {
@@ -15,7 +81,7 @@ const CommunityPage = () => {
     if (newComment.trim()) {
       const newCommentObj = {
         id: Date.now(),
-        user: sampleUser,
+        user: sampleUsers[0],
         text: newComment,
         date: new Date().toLocaleString(),
         likes: 0,
@@ -36,7 +102,7 @@ const CommunityPage = () => {
               ...comment.replies,
               {
                 id: Date.now(),
-                user: sampleUser,
+                user: sampleUsers[1],
                 text: replyText,
                 date: new Date().toLocaleString(),
                 likes: 0,
@@ -84,8 +150,8 @@ const CommunityPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
-      <h1 className="text-3xl font-bold mb-6">Community Feedback</h1>
+    <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center min-w-full">
+      <h1 className="text-3xl font-bold mb-6 text-blue font-sans">Community Feedback</h1>
 
       {/* Comment Form */}
       <form onSubmit={handleCommentSubmit} className="w-full max-w-md bg-white p-6 rounded shadow-md mb-8">
@@ -96,7 +162,7 @@ const CommunityPage = () => {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         />
-        <button type="submit" className="w-full bg-blue text-white py-2 rounded hover:bg-blue-600 transition-colors">
+        <button type="submit" className="w-full bg-blue text-white py-2 rounded hover:bg-blue transition-colors">
           Submit
         </button>
       </form>
@@ -124,8 +190,8 @@ const CommentItem = ({ comment, onLike, onReplySubmit, onReplyLike, onRemove, on
   const [showReplyBox, setShowReplyBox] = useState(false);
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      {/* User Info */}
+    <div className="bg-white p-4 rounded shadow w-full">
+      
       <div className="flex items-center mb-2">
         <img src={comment.user.profileImage} alt={comment.user.name} className="w-10 h-10 rounded-full mr-3" />
         <div>
@@ -134,10 +200,10 @@ const CommentItem = ({ comment, onLike, onReplySubmit, onReplyLike, onRemove, on
         </div>
       </div>
 
-      {/* Comment Text */}
+      
       <p className="text-gray-700 mb-2">{comment.text}</p>
 
-      {/* Actions: Like, Reply, Remove */}
+      
       <div className="flex items-center justify-between text-gray-400 text-sm mt-2">
         <div className="flex items-center space-x-4">
           <button onClick={onLike} className="text-blue">👍 {comment.likes}</button>
@@ -146,7 +212,6 @@ const CommentItem = ({ comment, onLike, onReplySubmit, onReplyLike, onRemove, on
         </div>
       </div>
 
-      {/* Replies */}
       <div className="ml-6 mt-4 space-y-4">
         {comment.replies.map((reply) => (
           <div key={reply.id} className="bg-gray-50 p-3 rounded">
@@ -159,14 +224,13 @@ const CommentItem = ({ comment, onLike, onReplySubmit, onReplyLike, onRemove, on
             </div>
             <p className="text-gray-700">{reply.text}</p>
             <div className="flex items-center justify-between text-gray-400 text-sm mt-2">
-              <button onClick={() => onReplyLike(reply.id)} className="hover:text-blue-500">👍 {reply.likes}</button>
-              <button onClick={() => onReplyRemove(reply.id)} className="hover:text-red-500">Remove</button>
+              <button onClick={() => onReplyLike(reply.id)} className="hover:text-blue">👍 {reply.likes}</button>
+              <button onClick={() => onReplyRemove(reply.id)} className="text-orange">Remove</button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Reply Box */}
       {showReplyBox && (
         <form
           onSubmit={(e) => {
@@ -183,7 +247,7 @@ const CommentItem = ({ comment, onLike, onReplySubmit, onReplyLike, onRemove, on
             value={replyText}
             onChange={(e) => setReplyText(e.target.value)}
           />
-          <button type="submit" className="mt-2 w-full bg-blue-500 text-white py-1 rounded hover:bg-blue-600 transition-colors">
+          <button type="submit" className="mt-2 w-full bg-blue text-white py-1 rounded hover:bg-blue-600 transition-colors">
             Submit Reply
           </button>
         </form>
@@ -192,4 +256,4 @@ const CommentItem = ({ comment, onLike, onReplySubmit, onReplyLike, onRemove, on
   );
 };
 
-export default CommunityPage;
+export default Community;
