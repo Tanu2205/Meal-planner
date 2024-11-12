@@ -83,7 +83,7 @@ const Community = () => {
     if (newComment.trim()) {
       const newCommentObj = {
         id: Date.now(),
-        user: sampleUsers[0],
+        user: sampleUsers[1],
         text: newComment,
         date: new Date().toLocaleString(),
         likes: 0,

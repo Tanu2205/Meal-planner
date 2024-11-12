@@ -18,6 +18,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
+  
+
   return ( <>
   
   <CartProvider>
@@ -30,6 +32,7 @@ function App() {
       <Route path="/quickbasket" element={<QuickBasket/>}/>
       <Route path="/community" element={<Community/>}/>
       <Route path="/cart" element={<CartPage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
     
     </div>
