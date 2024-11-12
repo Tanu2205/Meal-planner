@@ -13,7 +13,7 @@ const HealthGoals = () => {
     <>
     <div className='md:w-auto max-w-full mx-auto h-auto min-h-52 bg-#e4f4c3 shadow-lg rounded-lg overflow-hidden font-poppins  flex-col flex gap-2 '>
       <div className='text-start ml-4 font-sans font-bold text-3xl mt-4 text-blue'> 
-      <h2>Set Your Daily Meal Goal</h2></div>
+      <h2>Set Your Daily Meal Goal:</h2></div>
       <div className=" flex flex-col md:flex-row justify-evenly mt-4 md:mt-0 items-center gap-2 ml-2 mr-2 text-blue">
       <MealGoalCard 
         label="Calorie Intake" 
@@ -55,9 +55,6 @@ const HealthGoals = () => {
 
           </div>
       
-
-      
-
 
     </div>
 
@@ -110,7 +107,7 @@ const HealthGoals = () => {
         </div>
       </div>
       <button className="btn" style={{ backgroundColor: '#F26522', color: 'white' ,borderRadius:"5%",width:"8em"}}>
-        Save Goals
+        Save  your milestones
       </button>
     </div>
     </>
