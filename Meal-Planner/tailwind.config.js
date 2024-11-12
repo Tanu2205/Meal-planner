@@ -22,7 +22,16 @@ export default {
       '#4d5d52':'#333333',
       '#ff0000':'#008000',
       "#7f32a8":'#7f32a8',
-      '#4debe5':'#4debe5'
+      '#4debe5':'#4debe5',
+      '#dbebd3':'#dbebd3',
+      '#e4f4c3':'#e4f4c3'
+    },
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Poppins', 'sans-serif'],
+        },
+      },
     },
   plugins: [gradients],
 }}

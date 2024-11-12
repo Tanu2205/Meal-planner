@@ -14,7 +14,7 @@ function MealPlanning() {
   return (
     <>
       
-      <div className="flex flex-row h-screen rounded-r-lg  bg-#f26ca6">
+      <div className="flex flex-row h-screen rounded-r-lg  bg-#dbebd3">
         {/* Sidebar */}
         <div className="rounded-r-lg text-gray border-r flex flex-col items-center md:items-center w-12 md:w-1/6 ml-2 gap-1">
         
@@ -60,9 +60,7 @@ function MealPlanning() {
 
         {/* Content Area */}
         <div className="flex-1 p-4 md:p-8 overflow-auto bg-back" style={{ fontFamily: 'Georgia, serif' }}>
-          <div className="text-center mb-4">
-            <h1 className="text-2xl md:text-3xl font-semibold text-primary">User Profile</h1>
-          </div>
+          
           <div className="mt-4 md:mt-8">
             {activeTab === 'profile' && <ProfileInfo />}
             {activeTab === 'preferences' && <MealPreferences />}

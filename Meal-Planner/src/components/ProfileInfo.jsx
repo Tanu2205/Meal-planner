@@ -3,6 +3,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faRulerVertical, faWeight, faLeaf, faUtensils, faBullseye, faEdit } from '@fortawesome/free-solid-svg-icons';
 import image from '../assets/anita.jpg'
+import MealPlanner from './MealPlanner';
 const ProfileInfo = () => {
   const name = 'Anita Gupta';
   const email = 'anitagupta@gmail.com';
@@ -14,13 +15,17 @@ const ProfileInfo = () => {
   const favoriteFood = 'Chole bhature';
 
   return (
+    <>
+    <div className="text-center mb-4">
+            <h1 className="text-2xl md:text-3xl font-semibold text-primary">User Profile</h1>
+          </div>
     <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden font-poppins flex flex-col md:flex-row">
       <div className="w-full h-80 bg-gray-200 flex items-center justify-center md:w-80 md:h-auto">
-        <img src={profileImage} alt="Profile" className="w-5/6 h-5/6 object-cover md:rounded-full" />
+        <img src={profileImage} alt="Profile" className="w-5/6 h-5/6 object-cover rounded-full md:rounded-full" />
       </div>
       {/* Information Section */}
       <div className="flex-1 p-6">
-        <h2 className="text-3xl font-semibold text-gray-800">{name}</h2>
+        <h2 className="text-3xl font-semibold text-blue">{name}</h2>
         <p className="text-gray-600 flex items-center mb-4">
           <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-blue-500" />
           {email}
@@ -53,16 +58,13 @@ const ProfileInfo = () => {
           </ul>
         </div>
 
-        {/* About Section */}
-        
-
-        {/* Edit Button */}
         
       </div>
 
-      {/* Profile Image Section */}
+      
       
     </div>
+    </>
   );
 };
 
