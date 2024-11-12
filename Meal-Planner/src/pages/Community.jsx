@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import anita from '../assets/anita.jpg'
+import anita from '../assets/anita.jpg';
+import Navbar from '../components/Navbar';
 const sampleUsers = [
   {
     id: 1,
@@ -73,6 +74,7 @@ const initialComments = [
 ];
 
 const Community = () => {
+
   const [comments, setComments] = useState(initialComments);
   const [newComment, setNewComment] = useState('');
 
@@ -150,6 +152,8 @@ const Community = () => {
   };
 
   return (
+    <>
+        <Navbar/>
     <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center min-w-full">
       <h1 className="text-3xl font-bold mb-6 text-blue font-sans">Community Feedback</h1>
 
@@ -181,7 +185,8 @@ const Community = () => {
           />
         ))}
       </div>
-    </div>
+    </div></>
+    
   );
 };
 

@@ -15,19 +15,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import NotFound from './pages/NotFound'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider, useAuth } from './components/AuthContext';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
-import UserProfile from './pages/UserProfile';
-const PrivateRoute = ({ children }) => {
-  const { user } = useAuth();
-  return user ? children : <Navigate to="/login" />;
-};
+
+
 function App() {
   
 
   return ( <>
-  <AuthProvider>
+  
   <CartProvider>
 
 <div className='bg-back overflow-x-hidden'>
@@ -38,15 +32,11 @@ function App() {
       <Route path="/quickbasket" element={<QuickBasket/>}/>
       <Route path="/community" element={<Community/>}/>
       <Route path="/cart" element={<CartPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignUpPage />} />
-      <Route path="/profile" element={<PrivateRoute><UserProfile /></PrivateRoute>} />
-      <Route path="*" element={<NotFound />} />
     </Routes>
     
     </div>
     </CartProvider>
-  </AuthProvider>
+  
   
     
      

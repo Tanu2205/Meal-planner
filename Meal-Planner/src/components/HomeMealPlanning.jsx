@@ -110,7 +110,8 @@ function HomeMealPlanning(){
                       <br></br>
                     <h1 className="text-5xl font-bold my-2 text-blue">Plan Your Healthy Meal</h1>
                     <br></br>
-                    <p className='text-2xl text-blue'>Your ultimate meal planner website for easy, customized meal planning. Discover tailored recipes, build balanced meal plans, track nutrition, and create shopping lists – all in one place. Perfect for busy schedules and healthy eating goals!</p>
+                    <p className='text-2xl text-blue'>Discover the ultimate website for effortless, personalized meal planning! Get customized recipes, create balanced meal plans, track your nutrition, and build shopping lists – all in one convenient place. Ideal for maintaining healthy eating habits on a busy schedule!
+</p>
                     <NavLink to="/mealplanning" className="text-white  hover:text-gray-200 ">
                     <div className='rounded-3xl bg-blue w-32 h-12 flex justify-center mt-2 items-center font-semibold y'>Meal Planning                    </div>
                     </NavLink>
