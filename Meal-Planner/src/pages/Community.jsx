@@ -163,7 +163,7 @@ const Community = () => {
           onChange={(e) => setNewComment(e.target.value)}
         />
         <button type="submit" className="w-full bg-blue text-white py-2 rounded hover:bg-blue transition-colors">
-          Submit
+          share your thoughts with us
         </button>
       </form>
 
