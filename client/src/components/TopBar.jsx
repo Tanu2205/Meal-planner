@@ -1,72 +1,65 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FiPlus, FiHelpCircle, FiBell, FiChevronDown } from "react-icons/fi";
-
 import logo from '../assets/logo.png';
 import { FaShoppingCart } from "react-icons/fa";
+
 function TopBar() {
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
 
   return (
-    <div className="w-full flex items-center justify-between bg-lgreen py-3 px-4 rounded-full shadow-sm ">
+    <div className="w-full flex items-center justify-between bg-lgreen py-2 px-3 sm:py-3 sm:px-4 rounded-full shadow-sm">
 
-      {/* LEFT SIDE (Empty or add logo later) */}
+      {/* LEFT SIDE */}
       <div>
-        <img src={logo} alt="Logo" className="w-10" />
+        <img src={logo} alt="Logo" className="w-8 sm:w-10" />
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-3 sm:gap-6">
 
-        {/* ADD BUTTON */}
-        
-
-        {/* HELP ICON */}
+        {/* CART */}
         <NavLink to="/cart">
-        <FaShoppingCart
-          size={22}
-          className="text-gray-600 cursor-pointer hover:text-black transition"
-        /></NavLink>
-        
+          <FaShoppingCart
+            size={20}
+            className="text-gray-600 cursor-pointer hover:text-black transition sm:size-[22px]"
+          />
+        </NavLink>
 
-        {/* NOTIFICATION BELL */}
+        {/* NOTIFICATION */}
         <FiBell
-          size={22}
-          className="text-gray-600 cursor-pointer hover:text-black transition"
+          size={20}
+          className="text-gray-600 cursor-pointer hover:text-black transition sm:size-[22px]"
         />
 
         {token ? (
-          <div className="flex items-center gap-3 bg-white px-2 py-1 rounded-lg cursor-pointer hover:bg-gray-50 transition">
-
-            {/* User Image */}
+          <div className="flex items-center gap-2 sm:gap-3 bg-white px-2 py-1 rounded-lg cursor-pointer hover:bg-gray-50 transition">
             <img
               src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png"
               alt="User"
-              className="w-8 h-8 rounded-full object-cover"
+              className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover"
             />
 
-            {/* Username */}
-            <span className="text-gray-700 font-medium">
+            {/* Username hidden on small screens */}
+            <span className="text-gray-700 font-medium hidden sm:inline">
               {user?.username || "User"}
             </span>
 
-            {/* Dropdown arrow */}
             <FiChevronDown className="text-gray-600" />
-
           </div>
         ) : (
           <>
             <NavLink
               to="/signup"
-              className="px-4 py-2 bg-white border border-[#A3D9C5] rounded-xl text-[#2E6F52] font-medium hover:bg-[#EAF7F2] transition"
+              className="px-3 py-1 sm:px-4 sm:py-2 bg-white border border-[#A3D9C5] rounded-xl text-[#2E6F52] font-medium hover:bg-[#EAF7F2] transition text-sm sm:text-base"
             >
               Sign Up
             </NavLink>
 
             <NavLink
               to="/login"
-              className="px-4 py-2 bg-[#2E6F52] text-white rounded-xl font-medium hover:bg-[#22533E] transition"
+              className="px-3 py-1 sm:px-4 sm:py-2 bg-[#2E6F52] text-white rounded-xl font-medium hover:bg-[#22533E] transition text-sm sm:text-base"
             >
               Login
             </NavLink>
