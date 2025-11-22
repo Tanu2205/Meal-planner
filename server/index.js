@@ -5,7 +5,7 @@ const cors = require("cors");
 const axios = require("axios");
 const https = require("https");
 
-// routes
+// Routes
 const authRoutes = require("./routes/auth");
 const mealsRoutes = require("./routes/meals");
 const feedbackRoutes = require("./routes/feedback");
@@ -18,17 +18,30 @@ app.use(express.json());
 // ============================================================
 
 const allowedOrigins = [
-  "https://meal-planner-nine-eta.vercel.app", // your Vercel deployment
-  "http://localhost:5173" // dev environment
+  "https://meal-planner-p9avk8b21-tanushri-sonis-projects.vercel.app", // your actual Vercel frontend
+  "https://meal-planner-nine-eta.vercel.app", // old vercel preview (optional)
+  "http://localhost:5173" // local dev
 ];
 
+// CORS middleware
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.log("❌ Blocked by CORS:", origin);
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+// Required for Render CORS preflight
+app.options("*", cors());
 
 // ============================================================
 //                     MONGODB CONNECTION
@@ -105,7 +118,7 @@ const io = new Server(server, {
   },
 });
 
-// make socket.io available inside routes if needed
+// Make socket.io available inside routes if needed
 app.set("io", io);
 
 io.on("connection", (socket) => {
