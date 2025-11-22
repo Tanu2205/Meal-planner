@@ -14,15 +14,19 @@ function Recipes() {
   return (
     <div className="flex">
 
-      {/* Fixed Navbar */}
-      <div className="fixed left-0 top-0 h-full shadow-lg bg-white z-50 hidden sm:block">
+      {/* Fixed Navbar - always visible */}
+      <div className="fixed left-0 top-0 h-full shadow-lg bg-white z-50 w-[68px]">
         <Navbar />
       </div>
 
-      {/* Right content */}
-      <div className="w-full bg-gray-100 min-h-screen px-4 py-4 sm:px-6 sm:py-6
-                      ml-0 sm:ml-[68px]">
-
+      {/* Page content */}
+      <div
+        className="
+          w-full bg-gray-100 min-h-screen
+          px-4 py-4 sm:px-6 sm:py-6
+          ml-[68px]   /* Always offset for navbar */
+        "
+      >
         <TopBar />
 
         {/* Search bar */}
@@ -38,8 +42,11 @@ function Recipes() {
         </div>
 
         {/* Grid View */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 
-                        gap-8 sm:gap-11 justify-items-center px-2 sm:px-6 py-4 sm:py-6">
+        <div className="
+            grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 
+            gap-8 sm:gap-11 justify-items-center
+            px-2 sm:px-6 py-4 sm:py-6
+        ">
           {filteredRecipes.length > 0 ? (
             filteredRecipes.map((recipe, index) => (
               <RecipeCard
