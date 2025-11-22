@@ -3,32 +3,59 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const axios = require("axios");
+const https = require("https");
+
+// routes
 const authRoutes = require("./routes/auth");
 const mealsRoutes = require("./routes/meals");
 const feedbackRoutes = require("./routes/feedback");
 
 const app = express();
-app.use(cors());
 app.use(express.json());
 
-// ============= MONGODB CONNECTION =============
-mongoose.connect(process.env.MONGO_URI)
+// ============================================================
+//                         CORS FIX
+// ============================================================
+
+const allowedOrigins = [
+  "https://meal-planner-nine-eta.vercel.app", // your Vercel deployment
+  "http://localhost:5173" // dev environment
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  })
+);
+
+// ============================================================
+//                     MONGODB CONNECTION
+// ============================================================
+
+mongoose
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.log("MongoDB Error:", err));
+  .catch((err) => console.log("MongoDB Error:", err));
 
+// ============================================================
+//                           ROUTES
+// ============================================================
 
-// ============= ROUTES =============
 app.use("/api/auth", authRoutes);
 app.use("/api/meals", mealsRoutes);
 app.use("/api/feedback", feedbackRoutes);
 
-
-// ============= NUTRITION API ROUTE =============
-const https = require("https");
+// ============================================================
+//                     NUTRITION API ROUTE
+// ============================================================
 
 app.post("/api/nutrition", async (req, res) => {
   const { query } = req.body;
-  if (!query) return res.status(400).json({ error: "Query text is required" });
+  if (!query) {
+    return res.status(400).json({ error: "Query text is required" });
+  }
 
   try {
     const response = await axios.post(
@@ -53,7 +80,6 @@ app.post("/api/nutrition", async (req, res) => {
       fat: nutrition.fat || 0,
       raw,
     });
-
   } catch (err) {
     console.error("Avocavo API Error:", err.response?.data || err.message);
     res.status(500).json({
@@ -63,25 +89,25 @@ app.post("/api/nutrition", async (req, res) => {
   }
 });
 
+// ============================================================
+//                REAL-TIME SERVER WITH SOCKET.IO
+// ============================================================
 
-// ============================================================
-//                 REAL-TIME SERVER WITH SOCKET.IO
-// ============================================================
 const http = require("http");
 const server = http.createServer(app);
-
 const { Server } = require("socket.io");
+
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // your React port (change if needed)
-    methods: ["GET", "POST"]
-  }
+    origin: allowedOrigins,
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
 });
 
-// attach socket instance to express so routes can use it
+// make socket.io available inside routes if needed
 app.set("io", io);
 
-// socket connection logs
 io.on("connection", (socket) => {
   console.log("⚡ Client connected:", socket.id);
 
@@ -93,5 +119,8 @@ io.on("connection", (socket) => {
 // ============================================================
 //                        START SERVER
 // ============================================================
+
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server running with Socket.IO on port ${PORT}`));
+server.listen(PORT, () =>
+  console.log(`Server running with Socket.IO on port ${PORT}`)
+);
