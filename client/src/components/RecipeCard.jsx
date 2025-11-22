@@ -19,7 +19,9 @@ function RecipeCard({ title, image, time, calories, shortDescription, fullRecipe
   }, []);
 
   return (
-    <div className="relative flex flex-col bg-white rounded-2xl p-4 shadow-md w-80 hover:shadow-lg transition">
+    <div className="relative flex flex-col bg-white rounded-2xl p-4 shadow-md 
+  w-full max-w-xs sm:max-w-sm md:w-80 
+  hover:shadow-lg transition mx-auto">
 
       {/* Circular Image */}
       <div className="absolute -top-10 left-4 w-28 h-28 rounded-full overflow-hidden shadow-md border bg-white">

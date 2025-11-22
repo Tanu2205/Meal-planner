@@ -45,7 +45,7 @@ function Recipes() {
         <div className="
             grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 
             gap-8 sm:gap-11 justify-items-center
-            px-2 sm:px-6 py-4 sm:py-6
+            px-2 sm:px-8 py-4 sm:py-6
         ">
           {filteredRecipes.length > 0 ? (
             filteredRecipes.map((recipe, index) => (
