@@ -40,6 +40,13 @@ app.use(
   })
 );
 
+// Preflight fix for Express 5
+app.options("/*", cors());
+
+
+// Preflight fix for Express 5
+app.options("/*", cors());
+
 // Required for Render CORS preflight
 app.options("*", cors());
 
