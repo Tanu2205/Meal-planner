@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 
 // ============================================================
-//                         CORS FIX
+//                         CORS FIX (Express 5 Safe)
 // ============================================================
 
 const allowedOrigins = [
@@ -38,9 +38,11 @@ app.use(
   })
 );
 
+// ❌ REMOVE THIS — it crashes Express 5
+// app.options("(.*)", cors());
 
-// Express v5 only valid wildcard
-app.options("(.*)", cors());
+// ✔ Express 5 automatically handles OPTIONS preflight safely
+// no wildcard route required
 
 // ============================================================
 //                     MONGODB CONNECTION
@@ -126,6 +128,14 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("❌ Client disconnected:", socket.id);
   });
+});
+
+// ============================================================
+//                 SAFE CATCH-ALL FOR UNKNOWN ROUTES
+// ============================================================
+
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found" });
 });
 
 // ============================================================
