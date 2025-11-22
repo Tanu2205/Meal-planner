@@ -3,7 +3,8 @@ import axios from "axios";
 import { io } from "socket.io-client";
 import Navbar from "../components/Navbar";
 
-const API = "http://localhost:5000"; // change if needed
+const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
+ // change if needed
 
 export default function CommunityFeedback() {
   const [feedbackList, setFeedbackList] = useState([]);
@@ -37,9 +38,8 @@ export default function CommunityFeedback() {
     if (!token) return;
     loadFeedback();
 
-    socketRef.current = io(API, {
-      auth: { token }
-    });
+    socketRef.current = io(API, { transports: ["websocket"], auth: { token } });
+
 
     socketRef.current.on("connect", () => {
       console.log("Socket connected:", socketRef.current.id);
