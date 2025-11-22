@@ -10,45 +10,41 @@ export default function Signup() {
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    // ✅ Use environment variable for production, fallback to localhost for dev
-    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    try {
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-    const response = await axios.post(`${API_URL}/api/auth/login`, {
-      email: form.email,
-      password: form.password,
-    });
+      // ✅ Correct signup API + send all fields
+      const response = await axios.post(`${API_URL}/api/auth/signup`, {
+        username: form.username,
+        email: form.email,
+        password: form.password,
+      });
 
-    console.log("Login API Response:", response.data);
+      console.log("Signup API Response:", response.data);
 
-    // Extract data correctly
-    const { token, user } = response.data;
+      const { token, user } = response.data;
 
-    // Save in localStorage
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(user));
+      // Save in localStorage
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
 
-    alert("Login successful!");
-    navigate("/"); // redirect to homepage
-  } catch (error) {
-    console.error("Login error:", error.response?.data || error.message);
-    alert("Invalid login credentials");
-  }
-};
-
+      alert("Signup successful!");
+      navigate("/");
+    } catch (error) {
+      console.error("Signup error:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Signup failed");
+    }
+  };
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-50">
       <div className="flex flex-col items-center gap-6 bg-white p-8 rounded-lg shadow-lg w-96">
 
-        {/* Illustration Circles (Same style as login page) */}
-        
-          <div className="bg-yellow-400 rounded-full p-2">
-            <span className="text-white text-3xl">😊</span>
-          </div>
-          
+        <div className="bg-yellow-400 rounded-full p-2">
+          <span className="text-white text-3xl">😊</span>
+        </div>
 
         <h2 className="text-2xl font-semibold text-gray-700 text-center">
           Create Account
@@ -93,8 +89,6 @@ export default function Signup() {
             Sign Up
           </button>
         </form>
-
-        
 
         <p className="text-sm text-gray-500 mt-4">
           Already have an account?{" "}
