@@ -10,14 +10,34 @@ export default function Signup() {
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post("http://localhost:5000/api/auth/signup", form);
-      navigate("/login");
-    } catch (err) {
-      alert(err.response.data.message);
-    }
-  };
+  e.preventDefault();
+
+  try {
+    // ✅ Use environment variable for production, fallback to localhost for dev
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+    const response = await axios.post(`${API_URL}/api/auth/login`, {
+      email: form.email,
+      password: form.password,
+    });
+
+    console.log("Login API Response:", response.data);
+
+    // Extract data correctly
+    const { token, user } = response.data;
+
+    // Save in localStorage
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(user));
+
+    alert("Login successful!");
+    navigate("/"); // redirect to homepage
+  } catch (error) {
+    console.error("Login error:", error.response?.data || error.message);
+    alert("Invalid login credentials");
+  }
+};
+
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-50">
