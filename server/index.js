@@ -18,12 +18,11 @@ app.use(express.json());
 // ============================================================
 
 const allowedOrigins = [
-  "https://meal-planner-p9avk8b21-tanushri-sonis-projects.vercel.app", // your actual Vercel frontend
-  "https://meal-planner-nine-eta.vercel.app", // old vercel preview (optional)
-  "http://localhost:5173" // local dev
+  "https://meal-planner-p9avk8b21-tanushri-sonis-projects.vercel.app",
+  "https://meal-planner-nine-eta.vercel.app",
+  "http://localhost:5173",
 ];
 
-// CORS middleware
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -40,15 +39,8 @@ app.use(
   })
 );
 
-// Preflight fix for Express 5
-app.options("/*", cors());
-
-
-// Preflight fix for Express 5
-app.options("/*", cors());
-
-// Required for Render CORS preflight
-app.options("*", cors());
+// Express v5 only valid wildcard
+app.options("(.*)", cors());
 
 // ============================================================
 //                     MONGODB CONNECTION
@@ -73,6 +65,7 @@ app.use("/api/feedback", feedbackRoutes);
 
 app.post("/api/nutrition", async (req, res) => {
   const { query } = req.body;
+
   if (!query) {
     return res.status(400).json({ error: "Query text is required" });
   }
@@ -125,7 +118,6 @@ const io = new Server(server, {
   },
 });
 
-// Make socket.io available inside routes if needed
 app.set("io", io);
 
 io.on("connection", (socket) => {
