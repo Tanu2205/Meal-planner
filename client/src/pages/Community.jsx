@@ -147,7 +147,7 @@ export default function CommunityFeedback() {
 
   /* ------------------- Main UI ------------------- */
   return (
-    <div className="ml-[60px] md:ml-[68px] p-4 sm:p-6 max-w-full sm:max-w-4xl mx-auto w-full">
+    <div className="ml-[60px] md:ml-[68px] p-4 sm:p-6 max-w-full sm:max-w-4xl mx-auto ">
 
       {/* Navbar */}
       <div className="fixed left-0 top-0 h-full w-[60px] md:w-[68px] bg-white shadow-md">
