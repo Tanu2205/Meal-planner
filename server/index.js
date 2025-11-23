@@ -21,7 +21,9 @@ const allowedOrigins = [
   "https://meal-planner-p9avk8b21-tanushri-sonis-projects.vercel.app",
   "https://meal-planner-nine-eta.vercel.app",
   "http://localhost:5173",
+  
 ];
+
 
 app.use(
   cors({

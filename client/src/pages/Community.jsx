@@ -154,7 +154,7 @@ export default function CommunityFeedback() {
         <Navbar />
       </div>
 
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 font-[Poppins] py-6">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 font-[Poppins] py-6 w-full">
         Community Feedback
       </h1>
 
