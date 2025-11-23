@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const SECRET = process.env.JWT_SECRET;
 
 // Signup
+// Signup
 router.post("/signup", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -22,17 +23,14 @@ router.post("/signup", async (req, res) => {
 
     // Create user
     const user = await User.create({
-      username,
+      username,       // <-- matches frontend
       email,
       password: hashedPassword,
     });
 
-    // ⭐ Create token just like login
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1d",
-    });
+    // Token
+    const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: "1d" });
 
-    // ⭐ Return token + user
     res.json({
       message: "Signup successful",
       token,
@@ -42,11 +40,11 @@ router.post("/signup", async (req, res) => {
         email: user.email,
       },
     });
-
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });
   }
 });
+
 
 
 // Login
