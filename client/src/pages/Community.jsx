@@ -134,7 +134,7 @@ export default function CommunityFeedback() {
   /* ------------------- No Login Case ------------------- */
   if (!token) {
     return (
-      <div className="ml-[60px] p-4 sm:p-6 max-w-full text-center">
+      <div className="ml-[60px] p-4 sm:p-6 max-w-full text-center ">
         <div className="fixed left-0 top-0 h-full w-[60px] md:w-[68px]">
           <Navbar />
         </div>
@@ -154,7 +154,7 @@ export default function CommunityFeedback() {
         <Navbar />
       </div>
 
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 font-[Poppins]">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 font-[Poppins] py-6">
         Community Feedback
       </h1>
 
