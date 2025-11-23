@@ -147,14 +147,14 @@ export default function CommunityFeedback() {
 
   /* ------------------- Main UI ------------------- */
   return (
-    <div className="ml-[60px] md:ml-[68px] p-4 sm:p-6 max-w-full sm:max-w-4xl mx-auto ">
+    <div className="ml-[60px] md:ml-[68px] p-4 sm:p-6 max-w-full sm:max-w-4xl mx-auto w-full">
 
       {/* Navbar */}
       <div className="fixed left-0 top-0 h-full w-[60px] md:w-[68px] bg-white shadow-md">
         <Navbar />
       </div>
 
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 font-[Poppins] py-6 w-full">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 font-[Poppins] py-6">
         Community Feedback
       </h1>
 
