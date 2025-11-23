@@ -93,7 +93,7 @@ export default function Signup() {
         <p className="text-sm text-gray-500 mt-4">
           Already have an account?{" "}
           <div className="text-blue-500 font-semibold hover:text-blue-600">
-            <NavLink to="/signup">
+            <NavLink to="/login">
                         Log in
                         </NavLink>
           </div>
