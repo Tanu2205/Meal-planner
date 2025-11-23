@@ -4,7 +4,7 @@ import Homeintro from '../components/Homeintro';
 import HomeMealPlanning from '../components/HomeMealPlanning';
 import HomeRecepi from '../components/HomeRecepi';
 import Footer from '../components/Footer';
-
+import Chatbot from "./chatbot";
 function Homepage() {
   return (
     <>
@@ -20,10 +20,11 @@ function Homepage() {
 
           {/* Add padding to align content nicely */}
           <div className="pb-20">
+           
             <Homeintro />
             <HomeMealPlanning />
             <HomeRecepi />
-            
+             <Chatbot/>
           </div>
           <Footer />
 
