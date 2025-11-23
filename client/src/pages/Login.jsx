@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -99,9 +99,14 @@ export default function Login() {
 
         <p className="text-center text-sm text-gray-500 mt-4">
           Not a member?{" "}
-          <a href="/signup" className="text-green-500 font-semibold hover:text-green-600">
+          <div className="text-green-500 font-semibold hover:text-green-600">
+            <NavLink to="/signup">
             Join now
-          </a>
+            </NavLink>
+
+          </div>
+            
+          
         </p>
       </div>
     </div>
